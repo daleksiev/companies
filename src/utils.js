@@ -1,4 +1,4 @@
-import { companies_information, /* company_stock_prices */ } from './data';
+import { companies_information, company_stock_prices } from './data';
 
 export const industries = {};
 
@@ -30,7 +30,16 @@ export const getCompanyData = () => {
 
     companies_information.forEach(company => {
         let { industry } = company;
-        industry = getNameOfIndustry(industry)
+        industry = getNameOfIndustry(industry);
+
+        company.price = null;
+
+        if (Object.hasOwn(company_stock_prices, company.company_id)) {
+            company = { ...company, ...company_stock_prices[company.company_id] };
+        }
+
+        company.price = company.price ? `${company.price} ${company.currency}` : 'N/A';
+
 
         if (Object.hasOwn(newData, industry)) {
             newData[industry].push(company);

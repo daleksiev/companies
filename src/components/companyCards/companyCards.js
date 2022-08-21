@@ -14,13 +14,15 @@ const CompanyCards = () => {
                         .sort(sortCompaniesBy('popularityIndex'))
                         .map(data => <CompanyCard
                             key={data.company_name}
-                            stockPrice={`44 ${data.currency}`}
+                            price={data.price}
                             companyName={data.company_name}
                             stockName={data.stock_name}
                             stockSymbol={data.stock_symbol}
                             marketCap={data.market_cap}
+                            volume={data.volume}
                         />
-                        )}
+                        )
+                    }
                 </div>
             ))}
         </div>
