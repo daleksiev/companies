@@ -1,0 +1,16 @@
+.companyCard {
+    padding: 2px 10px 10px;
+    border-left: 5px solid #808080;
+
+    &.greenBorder {
+        border-color: #0f0;
+    }
+
+    &.redBorder {
+        border-color: #f00;
+    }
+
+    p {
+        margin: 0;
+    }
+}
